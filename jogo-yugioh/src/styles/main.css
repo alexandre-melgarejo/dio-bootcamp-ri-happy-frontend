@@ -25,7 +25,7 @@ a:hover {
 
 .bg-video .video {
     height: 100vh;
-    
+   
 }
 
 .bg-video::after {
@@ -37,9 +37,9 @@ a:hover {
     width: 100vw;
     background: linear-gradient(
         90deg, 
-        rgba(0,0,0,1) 0%,
-        rgba(0,0,0,0.8) 50%,
-        rgba(0,0,0,1) 100%,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.8) 50%,
+        rgba(0, 0, 0, 1) 100%
     )
 }
 
