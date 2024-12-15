@@ -1,7 +1,6 @@
 # dio-bootcamp-ri-happy-frontend
-Código fonte de atividades desenvolvidas ao longo do bootcamp Ri Happy - Front-end do Zero, oferecido pela dio.me
-
-Curso com foco voltado ao desenvolvimento front-end.
+Código fonte de atividades desenvolvidas ao longo do bootcamp Ri Happy - Front-end do Zero, oferecido pela [Digital Innovation One](https://dio.me)
+Curso voltado para o desenvolvimento front-end.
 
 Tecnologias:
 - HTML5
