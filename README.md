@@ -23,3 +23,8 @@ Tecnologias:
 9. [Multiverso Spider-Man: Criando um Site com HTML, CSS e JavaScript](https://github.com/alexandre-melgarejo/dio-bootcamp-ri-happy-frontend/tree/main/multiverso-spider-man)
 10. [Construindo seu Portfólio Front-end do Zero com HTML, CSS e JavaScript](https://github.com/alexandre-melgarejo/dio-bootcamp-ri-happy-frontend/tree/main/construindo-portfolio)
 
+
+Se você tiver alguma colaboração, sugestão, crítica, etc serão todas bem-vindas, [registre uma issue](https://github.com/alexandre-melgarejo/dio-bootcamp-ri-happy-frontend/issues).
+
+---
+Feito com 💙, ☕, 📚 e 🤖 · direto de MS - Brasil.
