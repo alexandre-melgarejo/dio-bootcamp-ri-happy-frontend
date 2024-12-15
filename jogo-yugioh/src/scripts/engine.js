@@ -20,6 +20,14 @@ const state = {
         computer: "computer-cards",
         computerBox: document.querySelector("#computer-cards"),
     },
+    slots: {
+        cardImage: document.getElementById("card-image"),
+        cardDetails: document.querySelector(".card_details"),
+    },
+    setup: {
+        music: document.getElementById("playMusic"),
+        sounds: document.getElementById("playSounds"),
+    },
     actions: {
         button: document.getElementById("next-duel"),
     },
@@ -107,6 +115,14 @@ async function updateScore() {
     state.score.scoreBox.innerText = `Wins: ${state.score.playerScore} | Lose: ${state.score.computerScore}`
 }
 
+async function hideCardDetails() {
+    state.cardSprites.avatar.src = "";
+    state.cardSprites.name.innerText = "";
+    state.cardSprites.type.innerText = "";
+
+    state.slots.cardDetails.style.display = "none";
+}
+
 async function setCardsField(cardId) {
 
     await removeAllCardsImages();
@@ -115,6 +131,8 @@ async function setCardsField(cardId) {
 
     state.fieldCards.player.style.display = "block";
     state.fieldCards.computer.style.display = "block";
+
+    await hideCardDetails();
 
     state.fieldCards.player.src = assetPath.image + cardData[cardId].img;
     state.fieldCards.computer.src = assetPath.image + cardData[computerCardId].img;
@@ -126,10 +144,24 @@ async function setCardsField(cardId) {
 
 }
 
+async function showCardSlots(value) {
+
+    if (value === false) {
+        // state.slots.cardImage.style.display = "none";
+        state.slots.cardDetails.style.display = "none";
+    } else {
+        // state.slots.cardImage.style.display = "block";
+        state.slots.cardDetails.style.display = "flex";
+    }
+    
+}
+
 async function drawSelectCard(index) {
     state.cardSprites.avatar.src = assetPath.image + cardData[index].img;
     state.cardSprites.name.innerText = cardData[index].name;
     state.cardSprites.type.innerText = "Attribute: " + cardData[index].type;
+
+    state.slots.cardDetails.style.display = "flex";
 }
 
 async function createCardImage(idCard, playerSide) {
@@ -149,6 +181,11 @@ async function createCardImage(idCard, playerSide) {
         cardImage.addEventListener("mouseover", () => {
             drawSelectCard(idCard);
         })
+
+        cardImage.addEventListener("mouseleave", () => {
+            hideCardDetails();
+        })
+
     }
     return cardImage;
 }
@@ -173,14 +210,31 @@ async function resetDuel(){
 }
 
 async function playAudio(status) {
-    const audio = new Audio(`${assetPath.audio}${status}.wav`)
-    debugger
-    audio.play();
+    if (state.setup.sounds.checked) {
+        const audio = new Audio(`${assetPath.audio}${status}.wav`)
+        audio.play();
+    }
+}
+
+async function setupMusic() {
+    const bgm = document.getElementById("bgm");
+
+    if (state.setup.music.checked) {
+        bgm.play();
+    } else {
+        bgm.pause();
+    }
 }
 
 function main(){
+
+    // showHiddenCardFieldsImages(false);
+
     drawCards(5, state.playerSides.player);
     drawCards(5, state.playerSides.computer);
+
+    setupMusic();
+
 }
 
 main();
